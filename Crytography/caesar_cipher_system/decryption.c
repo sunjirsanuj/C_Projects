@@ -9,8 +9,6 @@ int main()
     int i;
     int key = 3;
 
-    start:
-
     printf("Enter encrypted text: ");
     fgets(encrypted_text, sizeof(encrypted_text), stdin);
     encrypted_text[strcspn(encrypted_text, "\n")] = '\0';
@@ -29,20 +27,14 @@ int main()
                 plain_ch = (encrypted_ch - 'a' - key) % 26 + 'a';
             }
         }
-        else if(isspace(encrypted_ch)){
-            plain_ch = encrypted_ch;
-        }
-        else if(ispunct(encrypted_ch)){
-            plain_ch = encrypted_ch;
-        }
         else{
-            printf("\n\n******INVALIED INPUT******\nTry again\n\n");
-            goto start;
+            plain_ch = encrypted_ch;
         }
 
         plain_text[i] = plain_ch;
     }
 
+    plain_text[strlen(encrypted_text)] = '\0';
     printf("Plain text: %s\n",plain_text);
 
     return 0;
