@@ -20,13 +20,13 @@ int main()
 
         if(isalnum(encrypted_ch)){
             if(isdigit(encrypted_ch)){
-                plain_ch = (encrypted_ch - '0' - key) % 10 + '0';
+                plain_ch = (encrypted_ch - '0' - key + 10) % 10 + '0';
             }
             else if(isupper(encrypted_ch)){
-                plain_ch = (encrypted_ch - 'A' - key) % 26 + 'A';
+                plain_ch = (encrypted_ch - 'A' - key + 26) % 26 + 'A';
             }
             else if(islower(encrypted_ch)){
-                plain_ch = (encrypted_ch - 'a' - key) % 26 + 'a';
+                plain_ch = (encrypted_ch - 'a' - key + 26) % 26 + 'a';
             }
         }
         else{
